@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@theme {
+  /* Architectural Rectilinear Corners Override (redefines Najd Al-Zain's soft rounded bubbles to sharp structure) */
+  --radius-[32px]: 12px;
+  --radius-3xl: 8px;
+  --radius-2xl: 6px;
+  --radius-xl: 4px;
+  
+  /* Option 1: Royal Midnight & Rose Gold (Modern & Exclusive) */
+  --color-plum-primary: #0B132B;
+  --color-plum-dark: #1C2541;
+  --color-plum-light: #3A506B;
+  --color-gold-accent: #C5A880;
+  --color-gold-light: #E6D7C3;
+  --color-bg-soft: #F8F9FA;
+  --color-text-dark: #1F2937;
+  --color-text-light: #6B7280;
+}
+
+:root {
+  --background: #F8F9FA;
+  --foreground: #1F2937;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar matching the Midnight Sapphire theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F9FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0B132B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A880;
+}
+
+/* Elegant custom transitions and styles */
+.glass-nav {
+  background: rgba(11, 19, 43, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(11, 19, 43, 0.05);
+}
+
+.glass-modal {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+/* ─── Performance-optimized CSS animations (replaces Framer Motion) ─── */
+
+/* Section fade-in on scroll */
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-section {
+  animation: fadeInSection 0.6s ease-out both;
+}
+
+/* Hero content entrance */
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hero-enter {
+  animation: heroEnter 1s ease-out both;
+}
+
+/* Staggered card entrance */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card-enter {
+  animation: cardEnter 0.5s ease-out both;
+}
+
+/* Below-fold sections: skip rendering until near viewport */
+#about,
+#gallery,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* Custom Slanted Section Divider for modern editorial layout */
+.clip-slant {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+@media (max-width: 767px) {
+  .clip-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+  }
+}

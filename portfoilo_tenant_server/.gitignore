@@ -1,0 +1,94 @@
+# =========================
+# Python / Environment
+# =========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# =========================
+# Django Specific
+# =========================
+*.log
+local_settings.py
+
+# Local SQLite database (Do not commit your local dev database)
+# db.sqlite3
+# db.sqlite3-journal
+
+# Media files (User-uploaded files should not be in version control)
+# media/
+
+# Collected static files (Keep your source 'static/' folder tracked, but ignore the output folder)
+staticfiles/
+static_root/
+
+# =========================
+# Secrets / Configuration
+# =========================
+# Environment variable files (NEVER commit these)
+.env
+.env.local
+.env.dev
+.env.prod
+
+# =========================
+# Testing / Tooling
+# =========================
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+nosetests.xml
+coverage.xml
+
+# Celery (if you end up using it for background tasks)
+celerybeat-schedule
+celerybeat-schedule.db
+celerybeat.pid
+
+# =========================
+# OS / IDE Specific
+# =========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+
+# Vim
+*.swp
+*.swo
