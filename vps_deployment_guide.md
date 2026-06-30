@@ -142,18 +142,19 @@ rsync -avz --progress "C:/Users/Ramzi/Desktop/Nejed/portfoilo/templates/template
 
 ## 🐍 Phase 5 — Backend Configuration (Run as `portfoilos`)
 
-### Step 6: Set up the Virtual Environment & Dependencies
-Create a virtual environment inside the `portfoilo_tenant_server` folder and install Python requirements:
+### Step 6: Install `uv` and Sync Dependencies
+Install `uv` and synchronise backend dependencies using your `uv.lock` file (this automatically creates a `.venv` directory):
 ```bash
 cd /home/portfoilos/portfoilos/portfoilo_tenant_server
 
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate
+# Install uv for the portfoilos user if it's not installed
+if ! command -v uv &> /dev/null; then
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  source $HOME/.local/bin/env
+fi
 
-# Upgrade package installer and install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt || (pip install uv && uv pip install -r requirements.txt)
+# Sync dependencies using the lockfile (creates .venv)
+uv sync --frozen
 ```
 
 ### Step 7: Configure Production Secrets
@@ -173,15 +174,15 @@ pip install -r requirements.txt || (pip install uv && uv pip install -r requirem
    * *Save and exit (Ctrl+O ➔ Enter ➔ Ctrl+X).*
 
 ### Step 8: Database Migrations & Static Files Collection
-Run Django administrative commands to prepare the database and collect admin CSS/JS assets:
+Run Django administrative commands via `uv run` to prepare the database and collect admin CSS/JS assets:
 ```bash
 export DJANGO_SETTINGS_MODULE=config.settings.production
 
 # Apply any pending database migrations
-python manage.py migrate --noinput
+uv run python manage.py migrate --noinput
 
 # Collect static files
-python manage.py collectstatic --noinput --clear
+uv run python manage.py collectstatic --noinput --clear
 ```
 
 ---

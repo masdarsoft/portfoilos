@@ -18,7 +18,7 @@ set -euo pipefail
 REPO_DIR="/home/portfoilos/portfoilos"
 BACKEND_DIR="$REPO_DIR/portfoilo_tenant_server"
 FRONTEND_DIR="$REPO_DIR/templates/template_1_malakparties"
-VENV_DIR="$BACKEND_DIR/venv"
+VENV_DIR="$BACKEND_DIR/.venv"
 LOG_DIR="/var/log/portfoilos"
 
 echo ""
@@ -33,21 +33,26 @@ cd "$REPO_DIR"
 git pull origin main
 
 # ── 2. Backend — install Python deps ─────────────────────────────────────────
-echo "[2/7] Installing Python dependencies..."
-source "$VENV_DIR/bin/activate"
-pip install --quiet --upgrade pip
-pip install --quiet -r "$BACKEND_DIR/requirements.txt" || pip install --quiet uv && uv pip install --quiet -r "$BACKEND_DIR/requirements.txt"
+echo "[2/7] Installing Python dependencies with uv..."
+if ! command -v uv &> /dev/null; then
+  echo "  Installing uv..."
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  # Ensure uv is in the path for this execution
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+cd "$BACKEND_DIR"
+uv sync --frozen
 
 # ── 3. Backend — run migrations ───────────────────────────────────────────────
 echo "[3/7] Running database migrations..."
 cd "$BACKEND_DIR"
 DJANGO_SETTINGS_MODULE=config.settings.production \
-  python manage.py migrate --noinput
+  "$VENV_DIR/bin/python" manage.py migrate --noinput
 
 # ── 4. Backend — collect static files ────────────────────────────────────────
 echo "[4/7] Collecting static files..."
 DJANGO_SETTINGS_MODULE=config.settings.production \
-  python manage.py collectstatic --noinput --clear
+  "$VENV_DIR/bin/python" manage.py collectstatic --noinput --clear
 
 # ── 5. Backend — restart Gunicorn ─────────────────────────────────────────────
 echo "[5/7] Restarting Gunicorn (portfoilos-backend.service)..."

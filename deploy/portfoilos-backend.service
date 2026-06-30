@@ -15,7 +15,7 @@ EnvironmentFile=/home/portfoilos/portfoilos/portfoilo_tenant_server/.env
 Environment="DJANGO_SETTINGS_MODULE=config.settings.production"
 
 # Gunicorn: 3 workers (2*CPU + 1 is the rule of thumb for a 1-CPU VPS)
-ExecStart=/home/portfoilos/portfoilos/portfoilo_tenant_server/venv/bin/gunicorn \
+ExecStart=/home/portfoilos/portfoilos/portfoilo_tenant_server/.venv/bin/gunicorn \
     --workers 3 \
     --worker-class sync \
     --bind 127.0.0.1:8000 \
