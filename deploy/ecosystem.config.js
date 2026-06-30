@@ -8,7 +8,7 @@ module.exports = {
   apps: [
     {
       name: 'portfoilos-frontend',
-      cwd: '/home/portfoilos/portfoilos/templates/template_1_malakparties',
+      cwd: '/home/portfoilos/portfoilos/templates/template_1_malakparites',
       script: 'node_modules/next/dist/bin/next',
       args: 'start',
       instances: 1,          // Single instance; use 'max' if you want cluster mode

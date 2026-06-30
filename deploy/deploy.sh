@@ -11,13 +11,13 @@
 #   - pnpm installed globally
 #   - PM2 installed globally (npm i -g pm2)
 #   - /home/portfoilos/portfoilos/portfoilo_tenant_server/.env.production filled out
-#   - /home/portfoilos/portfoilos/templates/template_1_malakparties/.env.production filled out
+#   - /home/portfoilos/portfoilos/templates/template_1_malakparites/.env.production filled out
 # ──────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
 REPO_DIR="/home/portfoilos/portfoilos"
 BACKEND_DIR="$REPO_DIR/portfoilo_tenant_server"
-FRONTEND_DIR="$REPO_DIR/templates/template_1_malakparties"
+FRONTEND_DIR="$REPO_DIR/templates/template_1_malakparites"
 VENV_DIR="$BACKEND_DIR/.venv"
 LOG_DIR="/var/log/portfoilos"
 

@@ -135,7 +135,7 @@ rsync -avz --progress "C:/Users/Ramzi/Desktop/Nejed/portfoilo/portfoilo_tenant_s
 
 ### 3. Upload Next.js Frontend Public/Media Assets (Including Drone Videos)
 ```powershell
-rsync -avz --progress "C:/Users/Ramzi/Desktop/Nejed/portfoilo/templates/template_1_malakparties/public/malakparties/" portfoilos@72.61.193.157:/home/portfoilos/portfoilos/templates/template_1_malakparties/public/malakparties/
+rsync -avz --progress "C:/Users/Ramzi/Desktop/Nejed/portfoilo/templates/template_1_malakparites/public/malakparties/" portfoilos@72.61.193.157:/home/portfoilos/portfoilos/templates/template_1_malakparites/public/malakparties/
 ```
 
 ---
@@ -192,7 +192,7 @@ uv run python manage.py collectstatic --noinput --clear
 ### Step 9: Install Dependencies & Build
 Prepare the Next.js environment and compile the production bundle:
 ```bash
-cd /home/portfoilos/portfoilos/templates/template_1_malakparties
+cd /home/portfoilos/portfoilos/templates/template_1_malakparites
 
 # Install dependencies using lockfile
 pnpm install --frozen-lockfile
