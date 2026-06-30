@@ -3,9 +3,9 @@ Description=Portfoilos Django Backend (Gunicorn)
 After=network.target
 
 [Service]
-Type=notify
-User=www-data
-Group=www-data
+Type=simple
+User=portfoilos
+Group=portfoilos
 WorkingDirectory=/home/portfoilos/portfoilos/portfoilo_tenant_server
 
 # Load the production .env file
