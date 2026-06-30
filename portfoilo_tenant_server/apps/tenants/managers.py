@@ -29,12 +29,16 @@ class TenantManager(models.Manager):
         Returns:
             Tenant instance or raises Tenant.DoesNotExist
         """
+        host = host.strip().lower()
+        if host.startswith("www."):
+            host = host[4:]
+
         # 1. Try exact custom domain match
         try:
             return self.active().get(custom_domain=host)
         except self.model.DoesNotExist:
             pass
 
-        # 2. Extract subdomain from host (e.g. 'najd-al-zain' from 'najd-al-zain.najdalzian.com')
+        # 2. Extract subdomain from host
         subdomain = host.split(".")[0]
         return self.active().get(subdomain=subdomain)
