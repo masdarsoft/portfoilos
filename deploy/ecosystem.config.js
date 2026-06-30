@@ -18,7 +18,7 @@ module.exports = {
       max_memory_restart: '512M',
       env_production: {
         NODE_ENV: 'production',
-        PORT: 3000,
+        PORT: 3001,
       },
       error_file:  '/var/log/portfoilos/nextjs-error.log',
       out_file:    '/var/log/portfoilos/nextjs-out.log',
