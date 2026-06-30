@@ -55,6 +55,17 @@ export default function ServiceDetailClient({ category, allCategories, tenantDom
 
   const videoUrl = useMemo(() => getCategoryVideo(category.id), [category.id]);
   
+  // Safely prepare gallery list. If empty, fall back to mainImage.
+  const gallery = useMemo(() => {
+    if (category.gallery && category.gallery.length > 0) {
+      const filtered = category.gallery.filter(img => img && img !== "");
+      if (filtered.length > 0) return filtered;
+    }
+    return category.mainImage && category.mainImage !== ""
+      ? [category.mainImage]
+      : ["/images/logo.png"];
+  }, [category.gallery, category.mainImage]);
+  
   // Set video as active initially if available
   const [isVideoActive, setIsVideoActive] = useState<boolean>(!!videoUrl);
   const [activeImageIdx, setActiveImageIdx] = useState<number>(0);
@@ -163,9 +174,9 @@ ${extraNotes ? `- ملاحظات إضافية: ${extraNotes}` : ""}
                 className="w-full h-full object-cover brightness-90"
               />
             ) : (
-              category.gallery && category.gallery.length > 0 && (
+              gallery && gallery.length > 0 && (
                 <OptimizedImage 
-                  src={category.gallery[activeImageIdx]} 
+                  src={gallery[Math.min(activeImageIdx, gallery.length - 1)]} 
                   alt={`${category.seoTitle} | ملك الحفلات`} 
                   fill 
                   priority
@@ -205,7 +216,7 @@ ${extraNotes ? `- ملاحظات إضافية: ${extraNotes}` : ""}
               )}
 
               {/* Image Thumbnails */}
-              {category.gallery.map((img, i) => (
+              {gallery.map((img, i) => (
                 <button
                   key={i}
                   type="button"

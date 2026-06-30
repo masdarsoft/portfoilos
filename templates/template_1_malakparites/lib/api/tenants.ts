@@ -73,11 +73,31 @@ export const FALLBACK_TENANT: Tenant = {
   meta_description: 'ملك الحفلات: أفضل خدمات تأجير خيام ملكية، مكيفات صحراوية وفريون، بيوت شعر، وجلسات خارجية بالرياض بأسعار منافسة.',
 };
 
+// Convert Django REST response to clean frontend tenant
+function mapTenantApiToFrontend(apiTenant: any): Tenant {
+  const cleanUrl = (url: string) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
+      return url;
+    }
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+    const origin = new URL(apiUrl).origin;
+    return `${origin}/media/${url}`;
+  };
+
+  return {
+    ...apiTenant,
+    logo: cleanUrl(apiTenant.logo),
+    favicon: cleanUrl(apiTenant.favicon),
+  };
+}
+
 export async function getTenant(domain: string): Promise<Tenant> {
   try {
-    return await apiFetch<Tenant>(`/tenants/resolve/?domain=${encodeURIComponent(domain)}`, {
+    const data = await apiFetch<any>(`/tenants/resolve/?domain=${encodeURIComponent(domain)}`, {
       revalidate: 10,
     });
+    return mapTenantApiToFrontend(data);
   } catch (err) {
     if (err instanceof ApiError && err.status === 404) throw err;
     console.warn('[getTenant] API unreachable, using fallback tenant');

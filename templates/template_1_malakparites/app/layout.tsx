@@ -246,6 +246,7 @@ export default async function RootLayout({
                       width={28}
                       height={12}
                       className="object-contain"
+                      style={{ height: "auto" }}
                     />
                   </div>
                   {/* Visa */}

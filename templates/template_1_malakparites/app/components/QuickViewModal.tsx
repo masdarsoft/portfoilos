@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Calendar, User, Phone, MapPin, MessageSquare } from "lucide-react";
-import Image from "next/image";
+import { X, Calendar, User, Phone, MapPin, MessageSquare, Play } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 import { RentalCategory } from "../types";
 import { createBooking } from "../../lib/api/bookings";
 
@@ -13,7 +13,33 @@ interface QuickViewModalProps {
   tenantDomain: string;
 }
 
+// Map category IDs to their corresponding video files in public/malakparties/malakvideos
+const getCategoryVideo = (id: string): string | null => {
+  const mapping: { [key: string]: string } = {
+    "ac-rentals": "/malakparties/malakvideos/مكيفات تبريد.mp4",
+    "split-ac-rentals": "/malakparties/malakvideos/مكيفات تبريد.mp4",
+    "cabinet-ac-rentals": "/malakparties/malakvideos/مكيفات تبريد.mp4",
+    // "fan-rentals" removed because the video is about ACs
+    "tent-rentals": "/malakparties/malakvideos/خيام ملكية.mp4",
+    "hair-tents": "/malakparties/malakvideos/خيام تراثية.mp4",
+    "heater-rentals": "/malakparties/malakvideos/دفايات.mp4",
+    "chair-rentals": "/malakparties/malakvideos/كراسي.mp4",
+    "outdoor-sitting-rentals": "/malakparties/malakvideos/جلسات.mp4",
+    "outdoor-seats": "/malakparties/malakvideos/جلسات.mp4",
+    "indoor-seats": "/malakparties/malakvideos/جلسات.mp4",
+    "turasiyat": "/malakparties/malakvideos/جلسات تراثية وفرش ملكي.mp4",
+    "qahwajiyeen": "/malakparties/malakvideos/قهوجيين وصبابين.mp4",
+    "lighting-rentals": "/malakparties/malakvideos/عقود نور.mp4",
+    "sound-systems": "/malakparties/malakvideos/جلسات وخيام وكراسي.mp4"
+  };
+  return mapping[id] ?? null;
+};
+
 export default function QuickViewModal({ selectedCategory, onClose, tenantDomain }: QuickViewModalProps) {
+  const videoUrl = useMemo(() => getCategoryVideo(selectedCategory.id), [selectedCategory.id]);
+  
+  // Set video as active initially if available
+  const [isVideoActive, setIsVideoActive] = useState<boolean>(!!videoUrl);
   const [activeImageIdx, setActiveImageIdx] = useState(0);
   const [showInquiryForm, setShowInquiryForm] = useState(false);
 
@@ -56,6 +82,18 @@ export default function QuickViewModal({ selectedCategory, onClose, tenantDomain
     }
   };
 
+  // Safely prepare gallery list. If empty, fall back to mainImage.
+  const gallery = useMemo(() => {
+    if (selectedCategory.gallery && selectedCategory.gallery.length > 0) {
+      // Filter out empty strings
+      const filtered = selectedCategory.gallery.filter(img => img && img !== "");
+      if (filtered.length > 0) return filtered;
+    }
+    return selectedCategory.mainImage && selectedCategory.mainImage !== ""
+      ? [selectedCategory.mainImage]
+      : ["/images/logo.png"];
+  }, [selectedCategory.gallery, selectedCategory.mainImage]);
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -80,33 +118,72 @@ export default function QuickViewModal({ selectedCategory, onClose, tenantDomain
         </button>
 
         {/* Left Side: Media Gallery */}
-        <div className="w-full md:w-1/2 bg-gray-900 relative flex flex-col justify-between h-[30vh] md:h-auto p-4">
+        <div className="w-full md:w-1/2 bg-gray-900 relative flex flex-col justify-between h-[35vh] md:h-auto p-4">
           <div className="absolute inset-0 z-0">
-            {selectedCategory.gallery && selectedCategory.gallery.length > 0 && (
-              <Image 
-                src={selectedCategory.gallery[activeImageIdx]} 
-                alt={selectedCategory.title} 
-                fill 
-                sizes="(max-w-768px) 100vw, 50vw"
-                className="object-cover brightness-95" 
+            {isVideoActive && videoUrl ? (
+              <video
+                src={videoUrl}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover brightness-90"
               />
+            ) : (
+              gallery.length > 0 && (
+                <OptimizedImage 
+                  src={gallery[Math.min(activeImageIdx, gallery.length - 1)]} 
+                  alt={selectedCategory.title} 
+                  fill 
+                  sizes="(max-w-768px) 100vw, 50vw"
+                  className="object-cover brightness-95" 
+                />
+              )
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
           </div>
 
+          <div className="h-10 z-10" />
+
+          {/* Thumbnails to swap media - Sharp Squares */}
           <div className="relative z-10 mt-auto w-full">
-            {/* Thumbnails to swap media - Sharp Squares */}
-            <div className="flex gap-2 justify-center p-2 rounded-none bg-black/40 backdrop-blur-sm max-w-fit mx-auto">
-              {selectedCategory.gallery.map((img, i) => (
+            <div className="flex gap-2 justify-center p-2 rounded-none bg-black/40 backdrop-blur-sm max-w-fit mx-auto flex-wrap">
+              
+              {/* Video Thumbnail Button (if video exists) */}
+              {videoUrl && (
+                <button
+                  type="button"
+                  onClick={() => setIsVideoActive(true)}
+                  className={`relative w-12 h-12 rounded-none overflow-hidden border-2 transition-all duration-300 cursor-pointer flex flex-col items-center justify-center bg-black ${
+                    isVideoActive ? "border-gold-accent scale-105 shadow-md" : "border-white/20 opacity-70 hover:opacity-100"
+                  }`}
+                >
+                  <video 
+                    src={videoUrl} 
+                    muted 
+                    playsInline 
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none" 
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <Play className="w-4 h-4 text-gold-accent drop-shadow" />
+                  </div>
+                </button>
+              )}
+
+              {/* Image Thumbnails */}
+              {gallery.map((img, i) => (
                 <button
                   key={i}
                   type="button"
-                  onClick={() => setActiveImageIdx(i)}
+                  onClick={() => {
+                    setIsVideoActive(false);
+                    setActiveImageIdx(i);
+                  }}
                   className={`relative w-12 h-12 rounded-none overflow-hidden border-2 transition-all duration-300 ${
-                    activeImageIdx === i ? "border-gold-accent scale-105 shadow-md" : "border-white/20 opacity-70 hover:opacity-100"
+                    !isVideoActive && activeImageIdx === i ? "border-gold-accent scale-105 shadow-md" : "border-white/20 opacity-70 hover:opacity-100"
                   }`}
                 >
-                  <Image 
+                  <OptimizedImage 
                     src={img} 
                     alt="تجهيز" 
                     fill 
@@ -120,7 +197,7 @@ export default function QuickViewModal({ selectedCategory, onClose, tenantDomain
         </div>
 
         {/* Right Side: Request details form */}
-        <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col overflow-y-auto max-h-[60vh] md:max-h-full">
+        <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col overflow-y-auto max-h-[55vh] md:max-h-full">
           
           {!showInquiryForm ? (
             /* Overview & Date selection state */
@@ -131,7 +208,7 @@ export default function QuickViewModal({ selectedCategory, onClose, tenantDomain
                 <div className="w-12 h-0.5 bg-gold-accent mt-2 rounded-none" />
               </div>
 
-              <p className="text-xs text-text-light leading-relaxed text-right">
+              <p className="text-xs text-text-light leading-relaxed text-right font-light">
                 {selectedCategory.description}
               </p>
 
