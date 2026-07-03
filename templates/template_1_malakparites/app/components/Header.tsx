@@ -117,19 +117,19 @@ export default function Header({ categories, tenant }: HeaderProps) {
                   href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-4 py-2 border border-gold-accent text-gold-accent hover:bg-gold-accent hover:text-plum-primary rounded-none text-[10px] font-bold transition-all duration-300 gap-1.5 hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent"
+                  className="inline-flex items-center justify-center px-5 py-2.5 border border-gold-accent text-gold-accent hover:bg-gold-accent hover:text-plum-primary rounded-none text-base font-black transition-all duration-300 gap-2 hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent"
                 >
-                  <MessageCircle className="w-3.5 h-3.5" />
+                  <MessageCircle className="w-4 h-4" />
                   <span>طلب تسعير سريع</span>
                 </a>
                 
                 {/* Sharp square call button with phone number text */}
                 <a 
                   href={`tel:${phoneNum}`}
-                  className="inline-flex items-center justify-center px-4 py-2 bg-gold-accent text-plum-primary hover:bg-gold-light hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent transition-all duration-300 shadow-md gap-1.5 rounded-none text-[10px] font-bold"
+                  className="inline-flex items-center justify-center px-5 py-2.5 bg-gold-accent text-plum-primary hover:bg-gold-light hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent transition-all duration-300 shadow-md gap-2 rounded-none text-base font-black"
                   aria-label={`اتصل بنا على الرقم ${phoneNum}`}
                 >
-                  <Phone className="w-3.5 h-3.5" />
+                  <Phone className="w-4 h-4" />
                   <span dir="ltr">{phoneNum}</span>
                 </a>
               </div>

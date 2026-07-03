@@ -1,5 +1,6 @@
 // lib/api/client.ts
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000/api/v1';
+const INTERNAL_URL = 'http://127.0.0.1:8000/api/v1';
 
 export class ApiError extends Error {
   constructor(public status: number, message: string) {
@@ -19,7 +20,10 @@ export async function apiFetch<T>(
     ? { next: { revalidate } } as any
     : { cache: 'no-store' as RequestCache };
 
-  const res = await fetch(`${BASE_URL}${path}`, {
+  const isServer = typeof window === 'undefined';
+  const resolvedBase = isServer ? INTERNAL_URL : BASE_URL;
+
+  const res = await fetch(`${resolvedBase}${path}`, {
     headers: {
       'Content-Type': 'application/json',
       ...fetchOptions.headers,
