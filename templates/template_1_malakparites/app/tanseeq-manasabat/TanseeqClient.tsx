@@ -224,7 +224,7 @@ export default function TanseeqClient({ categories = RENTAL_CATEGORIES }: Tansee
               {/* CTAs - Sharp */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-4 w-full sm:w-auto">
                 <a
-                  href="https://api.whatsapp.com/send/?phone=966569436019&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AA%D9%86%D8%B3%D9%8A%D9%82+%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A9"
+                  href="https://api.whatsapp.com/send/?phone=996567880162&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AA%D9%86%D8%B3%D9%8A%D9%82+%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A9"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-3.5 bg-gold-accent hover:bg-gold-light text-plum-primary font-black rounded-none shadow-lg hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-gold-accent transition-all duration-300 text-center text-xs"
@@ -232,7 +232,7 @@ export default function TanseeqClient({ categories = RENTAL_CATEGORIES }: Tansee
                   احجز تنسيق الفعالية الآن
                 </a>
                 <a
-                  href="tel:+966569436019"
+                  href="tel:+996567880162"
                   className="px-8 py-3.5 border border-white/20 hover:border-gold-accent text-white font-bold rounded-none bg-white/5 hover:bg-white/10 hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-white/30 transition-all duration-300 text-center text-xs"
                 >
                   اتصال مباشر بالمنسق
@@ -528,7 +528,7 @@ export default function TanseeqClient({ categories = RENTAL_CATEGORIES }: Tansee
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://api.whatsapp.com/send/?phone=966569436019&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%88%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AA%D9%86%D8%B3%D9%8A%D9%82+%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A9"
+              href="https://api.whatsapp.com/send/?phone=996567880162&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%88%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AA%D9%86%D8%B3%D9%8A%D9%82+%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A9"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="تواصل معنا عبر واتساب"
@@ -538,7 +538,7 @@ export default function TanseeqClient({ categories = RENTAL_CATEGORIES }: Tansee
               <span>واتساب فوري</span>
             </a>
             <a
-              href="tel:+966569436019"
+              href="tel:+996567880162"
               aria-label="اتصل بنا الآن"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gold-accent hover:bg-gold-light text-plum-primary font-black rounded-none shadow-lg hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent transition-all duration-300 text-sm cursor-pointer"
             >

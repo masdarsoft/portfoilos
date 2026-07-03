@@ -34,7 +34,7 @@ export default function ContactSection() {
     } catch (err) {
       console.error("Booking error:", err);
       // Fallback redirect manually
-      const manualUrl = `https://api.whatsapp.com/send/?phone=966569436019&text=${encodeURIComponent(
+      const manualUrl = `https://api.whatsapp.com/send/?phone=996567880162&text=${encodeURIComponent(
         `السلام عليكم، اسمي ${formData.name}. أريد الاستفسار عن خدمات التجهيز لمناسبتي. ملاحظات: ${formData.notes}`
       )}`;
       window.open(manualUrl, "_blank");
@@ -133,7 +133,7 @@ export default function ContactSection() {
           {/* Quick Direct Connect Options Below Form - Sharp buttons with offset hover outlines */}
           <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
             <a 
-              href="tel:+966569436019"
+              href="tel:+996567880162"
               className="flex items-center justify-center gap-2 py-2.5 rounded-none bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-bold text-white hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-white/20 transition-all duration-300"
               aria-label="اتصال هاتفي مباشر"
             >
@@ -142,7 +142,7 @@ export default function ContactSection() {
             </a>
             
             <a 
-              href="https://api.whatsapp.com/send/?phone=966569436019"
+              href="https://api.whatsapp.com/send/?phone=996567880162"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 py-2.5 rounded-none bg-green-500/10 hover:bg-green-500/25 border border-green-500/20 text-xs font-bold text-green-400 hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-green-500/30 transition-all duration-300"

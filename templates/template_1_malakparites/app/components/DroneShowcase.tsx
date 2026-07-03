@@ -129,7 +129,7 @@ export default function DroneShowcase() {
 
                 {/* Updated Video Label with Brand and Phone Number */}
                 <span className="text-[10px] font-bold text-gray-200 bg-black/70 px-3 py-2 border border-white/10 pointer-events-none">
-                  مؤسسة ملك الحفلات | +966 56 943 6019
+                  مؤسسة ملك الحفلات | +996 567880162
                 </span>
               </div>
             </div>

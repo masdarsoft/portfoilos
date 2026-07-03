@@ -35,8 +35,8 @@ export default function Header({ categories, tenant }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const phoneNum = tenant?.phone || "+966569436019";
-  const whatsappNum = tenant?.whatsapp || "+966569436019";
+  const phoneNum = tenant?.phone || "+996567880162";
+  const whatsappNum = tenant?.whatsapp || "+996567880162";
   const cleanWhatsapp = whatsappNum.replace("+", "").replace(" ", "");
 
   const navLinks = [
@@ -305,13 +305,13 @@ export default function Header({ categories, tenant }: HeaderProps) {
 
         {/* Quick WhatsApp Quote */}
         <a 
-          href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8Self%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1`}
+          href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center gap-1 text-white hover:text-gold-accent transition-colors duration-300"
           aria-label="مراسلة واتساب"
         >
-          <MessageCircle className="w-5.5 h-5.5 text-green-400" />
+          <MessageCircle className="w-5.5 h-5.5" />
           <span className="text-[10px] font-black">واتساب</span>
         </a>
 
@@ -333,7 +333,7 @@ export default function Header({ categories, tenant }: HeaderProps) {
           }`}
           aria-label="اتصل بنا"
         >
-          <Phone className="w-5.5 h-5.5 text-gold-accent" />
+          <Phone className="w-5.5 h-5.5" />
           <span className="text-[10px] font-black">حجز موعد</span>
         </Link>
       </div>

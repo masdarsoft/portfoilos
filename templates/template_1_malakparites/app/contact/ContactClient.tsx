@@ -49,7 +49,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
 شكراً لكم، أرجو التواصل معي لتأكيد التفاصيل والأسعار.`;
 
     const encodedText = encodeURIComponent(arabicMsg);
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=%2B966569436019&text=${encodedText}`;
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=%2B996567880162&text=${encodedText}`;
     window.open(whatsappUrl, "_blank");
 
     // Show custom success card
@@ -219,7 +219,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
               
               {/* Address card */}
               <a
-                href="https://www.google.com/search?kgmid=%2Fg%2F11ysn62f2y&hl=en-SA&q=%D8%A7%D9%84%D9%85%D8%A7%D8%B1%D9%8A%D9%86%D8%A7.%D9%84%D9%84%D8%AD%D9%81%D9%84%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A7%D8%AA.%D8%AF%D9%81%D8%A7%D9%8A%D8%A7%D8%AA%20%D9%85%D9%83%D9%8A%D9%81%D8%A7%D8%AA%20%D8%AE%D9%8A%D8%A7%D9%85.%D9%83%D8%B1%D8%A7%D8%B3%D9%8A&shem=epsdc%2Crimspwouoe&shndl=30&source=sh%2Fx%2Floc%2Fosrp%2Fm5%2F1&kgs=2ea93a7c63b6c476"
+                href="https://share.google/oPciGOLlFXG6UVvbT"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white hover:border-plum-primary/35 hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-plum-primary/20 transition-all duration-300 rounded-none p-6 border border-gray-100 shadow-sm flex items-start gap-4 text-right cursor-pointer group"
@@ -230,7 +230,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                 <div className="flex flex-col text-right">
                   <span className="text-[10px] text-gray-400 font-bold uppercase mb-0.5">موقعنا على الخريطة</span>
                   <span className="text-xs font-bold text-plum-primary leading-snug group-hover:text-gold-accent transition-colors duration-300">ملك الحفلات</span>
-                  <span className="text-[11px] text-text-light font-medium mt-0.5 leading-relaxed">الرياض، المملكة العربية السعودية (اضغط للتوجيه)</span>
+                  <span className="text-[11px] text-text-light font-medium mt-0.5 leading-relaxed">جاكرتا، السعادة، الرياض 14614، المملكة العربية السعودية (اضغط للتوجيه)</span>
                 </div>
               </a>
 
@@ -248,7 +248,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
 
               {/* Direct call */}
               <a
-                href="tel:+966569436019"
+                href="tel:+996567880162"
                 className="bg-white hover:border-plum-primary/35 hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-plum-primary/20 transition-all duration-300 rounded-none p-6 border border-gray-100 shadow-sm flex items-start gap-4"
               >
                 <div className="p-3 bg-plum-primary/10 text-plum-primary rounded-none flex items-center justify-center flex-shrink-0">
@@ -256,14 +256,14 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                 </div>
                 <div className="flex flex-col text-right">
                   <span className="text-[10px] text-gray-400 font-bold uppercase mb-0.5">اتصال هاتفي مباشر</span>
-                  <span className="text-xs font-bold text-plum-primary leading-snug" dir="ltr">+966 56 943 6019</span>
+                  <span className="text-xs font-bold text-plum-primary leading-snug" dir="ltr">+996 567880162</span>
                   <span className="text-[11px] text-text-light font-medium mt-0.5">تحدث مع موظف خدمة العملاء</span>
                 </div>
               </a>
 
               {/* WhatsApp direct */}
               <a
-                href="https://api.whatsapp.com/send/?phone=%2B966569436019&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0"
+                href="https://api.whatsapp.com/send/?phone=%2B996567880162&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white hover:border-[#25D366]/35 hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-[#25D366]/20 transition-all duration-300 rounded-none p-6 border border-gray-100 shadow-sm flex items-start gap-4"
@@ -294,7 +294,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
 
               {/* Map Canvas Simulated Container */}
               <a
-                href="https://www.google.com/search?kgmid=%2Fg%2F11ysn62f2y&hl=en-SA&q=%D8%A7%D9%84%D9%85%D8%A7%D8%B1%D9%8A%D9%86%D8%A7.%D9%84%D9%84%D8%AD%D9%81%D9%84%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A7%D8%AA.%D8%AF%D9%81%D8%A7%D9%8A%D8%A7%D8%AA%20%D9%85%D9%83%D9%8A%D9%81%D8%A7%D8%AA%20%D8%AE%D9%8A%D8%A7%D9%85.%D9%83%D8%B1%D8%A7%D8%B3%D9%8A&shem=epsdc%2Crimspwouoe&shndl=30&source=sh%2Fx%2Floc%2Fosrp%2Fm5%2F1&kgs=2ea93a7c63b6c476"
+                href="https://share.google/oPciGOLlFXG6UVvbT"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative h-[220px] rounded-none overflow-hidden border border-gray-100 shadow-inner bg-slate-900 flex items-center justify-center select-none group cursor-pointer block"

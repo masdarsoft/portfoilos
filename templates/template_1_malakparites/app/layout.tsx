@@ -50,16 +50,51 @@ export async function generateMetadata(): Promise<Metadata> {
   const domain = getTenantDomain();
   const tenant = await getTenant(domain).catch(() => FALLBACK_TENANT);
 
+  const keywordsList = [
+    "اقرب محل تاجير مكيفات",
+    "رقم تلفون تاجير مكيفات صحراوي",
+    "حفلات الروضة",
+    "حفلات السعاده",
+    "حفلات حي الجزيره",
+    "تاجير حفلات السلي",
+    "حفلات وتنسق حفلات النسيم",
+    "حفلات الروابي",
+    "تاجير كنب مركاز وكنب كويتي",
+    "تاجير زل ازرق",
+    "تاجير زل ملكي",
+    "تاجير كراسي كلاسيكي",
+    "تاجير مخمل",
+    "تاجير اخيام جميع المقاسات",
+    "تاجير بيوت شعر جميع المقاسات",
+    "تاجير جلسات مرتفعه",
+    "شركه حفلات ومناسبات",
+    "موسسة حفلات ومناسبات",
+    "تاجير كراسي مخمل",
+    "تاجير طولات",
+    "تاجير سمعات",
+    "احسن محل تاجير الرياض",
+    "حفلات الدرعيه تاجير مكيفات صحراوي",
+    "حفلات حي الرمال",
+    "محل حفلات العزازيه",
+    "محل حفلات شرقي الرياض"
+  ];
+
   return {
     title: {
       default: tenant.meta_title || `${tenant.name} | لتجهيز المناسبات`,
       template: `%s | ${tenant.name}`
     },
     description: tenant.meta_description || tenant.tagline,
+    keywords: keywordsList,
     authors: [{ name: tenant.name }],
     creator: tenant.name,
     publisher: tenant.name,
     metadataBase: new URL(tenant.custom_domain ? `https://${tenant.custom_domain}` : `https://${tenant.subdomain}.najdalzian.com`),
+    icons: {
+      icon: tenant.favicon || "/favicon.ico",
+      shortcut: tenant.favicon || "/favicon.ico",
+      apple: tenant.favicon || "/favicon.ico",
+    },
     openGraph: {
       title: tenant.meta_title || tenant.name,
       description: tenant.meta_description || tenant.tagline,
@@ -122,6 +157,18 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MS6LBXG8');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
+
         {/* Favicon from API */}
         <link rel="icon" href={tenant.favicon || "/icon.png"} type="image/png" sizes="192x192" />
         <link rel="shortcut icon" href={tenant.favicon || "/icon.png"} type="image/png" />
@@ -131,6 +178,16 @@ export default async function RootLayout({
         <meta name="thumbnail" content={tenant.logo || "/logo.png"} />
       </head>
       <body className="min-h-full flex flex-col font-sans bg-bg-soft text-text-dark antialiased" style={{ fontFamily: "var(--font-tajawal), sans-serif" }}>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MS6LBXG8"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
 
         {/* Sticky Glassmorphism Responsive Navbar with API categories */}
         <Header categories={categories} tenant={tenant} />
@@ -261,24 +318,13 @@ export default async function RootLayout({
                 </div>
               </div>
 
-              <p className="text-[10px] text-gray-500">
-                 تطوير وتصميم:{" "} 
-                 <a 
-                   href="https://api.whatsapp.com/send/?phone=967776776287" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   className="hover:text-gold-accent transition-colors duration-300 underline underline-offset-4"
-                 >
-                   اتصال بالمطور
-                 </a>
-              </p>
             </div>
           </div>
         </footer>
 
         {/* Pulsing WhatsApp FAB (Desktop Only since mobile has it in the bottom navigation bar) */}
         <a
-          href={`https://api.whatsapp.com/send/?phone=${whatsappNum.replace("+", "").replace(" ", "")}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8Adjust+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0`}
+          href={`https://api.whatsapp.com/send/?phone=${whatsappNum.replace("+", "").replace(" ", "")}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0`}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:flex fixed z-50 md:bottom-8 md:left-8 items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group cursor-pointer"

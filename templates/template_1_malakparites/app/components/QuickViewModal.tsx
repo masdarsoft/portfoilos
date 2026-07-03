@@ -72,7 +72,7 @@ export default function QuickViewModal({ selectedCategory, onClose, tenantDomain
     } catch (err) {
       console.error("Failed to create booking:", err);
       // Fallback manual URL
-      const manualUrl = `https://api.whatsapp.com/send/?phone=966569436019&text=${encodeURIComponent(
+      const manualUrl = `https://api.whatsapp.com/send/?phone=996567880162&text=${encodeURIComponent(
         `السلام عليكم، أريد الاستفسار عن خدمة: ${selectedCategory.title}\nالاسم: ${customerName}\nالجوال: ${customerPhone}\nالتاريخ: من ${startDate || "غير محدد"} إلى ${endDate || "غير محدد"}\nالموقع: ${eventLocation}\nالملاحظات: ${extraNotes}`
       )}`;
       window.open(manualUrl, "_blank");
