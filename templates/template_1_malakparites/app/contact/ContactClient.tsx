@@ -345,7 +345,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                     width={32}
                     height={14}
                     className="object-contain"
-                    style={{ height: "auto" }}
+                    style={{ width: "auto", height: "auto" }}
                   />
                 </div>
                 {/* Visa */}

@@ -302,7 +302,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                       width={28}
                       height={12}
                       className="object-contain"
-                      style={{ height: "auto" }}
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </div>
                   {/* Visa */}

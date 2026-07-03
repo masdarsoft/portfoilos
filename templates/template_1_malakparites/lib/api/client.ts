@@ -1,4 +1,5 @@
-// lib/api/client.ts
+import { getTenantDomain } from "../getTenantDomain";
+
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000/api/v1';
 const INTERNAL_URL = 'http://127.0.0.1:8000/api/v1';
 
@@ -15,17 +16,19 @@ export async function apiFetch<T>(
 ): Promise<T> {
   const { revalidate, ...fetchOptions } = options;
   
-  // Set default caching headers/behaviors for Next.js App Router
+  // Set default caching behaviors for Next.js App Router
   const nextOptions: RequestInit = revalidate !== undefined
     ? { next: { revalidate } } as any
     : { cache: 'no-store' as RequestCache };
 
   const isServer = typeof window === 'undefined';
   const resolvedBase = isServer ? INTERNAL_URL : BASE_URL;
+  const domain = isServer ? getTenantDomain() : '';
 
   const res = await fetch(`${resolvedBase}${path}`, {
     headers: {
       'Content-Type': 'application/json',
+      ...(isServer ? { 'Host': domain } : {}),
       ...fetchOptions.headers,
     },
     ...fetchOptions,
