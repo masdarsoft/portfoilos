@@ -54,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Dynamic service category pages loaded from API
   const servicePages: MetadataRoute.Sitemap = categories.map((category) => {
     return {
-      url: `${baseUrl}/${category.id}`,
+      url: `${baseUrl}/${category.slug || category.id}`,
       lastModified: today,
       changeFrequency: "weekly" as const,
       priority: 0.9,

@@ -68,14 +68,13 @@ export default function Header({ categories, tenant }: HeaderProps) {
               <div className="flex items-center gap-4">
                 <Link href="/" className="flex items-center gap-3 pointer-events-auto">
                   {/* Clean logo frame */}
-                  <div className="w-11 h-11 flex items-center justify-center">
+                  <div className="relative h-11 w-28 flex items-center justify-center flex-shrink-0">
                     <Image
                       src={tenant?.logo || "/logo.png"}
                       alt={tenant?.name || "شعار ملك الحفلات"}
-                      width={44}
-                      height={44}
+                      fill
                       priority
-                      className="object-cover w-full h-full"
+                      className="object-contain"
                     />
                   </div>
                   <div className="flex flex-col text-right">
@@ -150,14 +149,13 @@ export default function Header({ categories, tenant }: HeaderProps) {
         <div className="py-3.5 px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             {/* Clean logo frame */}
-            <div className="w-9 h-9 flex items-center justify-center">
+            <div className="relative h-9 w-20 flex items-center justify-center flex-shrink-0">
               <Image
                 src={tenant?.logo || "/logo.png"}
                 alt={tenant?.name || "شعار ملك الحفلات"}
-                width={36}
-                height={36}
+                fill
                 priority
-                className="object-cover w-full h-full"
+                className="object-contain"
               />
             </div>
             <div className="flex flex-col text-right">
@@ -211,13 +209,12 @@ export default function Header({ categories, tenant }: HeaderProps) {
             {/* Header in Menu */}
             <div className="flex items-center justify-between pb-5 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 flex items-center justify-center">
+                 <div className="relative h-9 w-20 flex items-center justify-center flex-shrink-0">
                   <Image
                     src={tenant?.logo || "/logo.png"}
                     alt={tenant?.name || "شعار ملك الحفلات"}
-                    width={36}
-                    height={36}
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-contain"
                   />
                 </div>
                 <span className="text-sm font-black text-white">مؤسسة ملك الحفلات</span>

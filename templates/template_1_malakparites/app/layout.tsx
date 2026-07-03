@@ -206,13 +206,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3 justify-start">
                   {/* Clean logo frame */}
-                  <div className="w-11 h-11 flex items-center justify-center">
+                  <div className="relative h-11 w-28 flex items-center justify-center flex-shrink-0">
                     <Image
                       src={tenant.logo || "/logo.png"}
                       alt={tenant.name}
-                      width={44}
-                      height={44}
-                      className="object-cover w-full h-full"
+                      fill
+                      className="object-contain"
                     />
                   </div>
                   <span className="text-xl font-black tracking-wider text-gold-accent">
