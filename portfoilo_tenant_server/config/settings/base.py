@@ -26,6 +26,8 @@ if "127.0.0.1" not in ALLOWED_HOSTS:
 if "localhost" not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append("localhost")
 
+SECURE_REDIRECT_EXEMPT = [r"^api/"]
+
 # ─── Installed Apps ───────────────────────────────────────────────────────────
 DJANGO_APPS = [
     "django.contrib.admin",
