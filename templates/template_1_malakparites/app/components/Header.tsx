@@ -113,7 +113,7 @@ export default function Header({ categories, tenant }: HeaderProps) {
               <div className="flex items-center gap-3">
                 {/* Sharp square quote button with offset hover drawing */}
                 <a 
-                  href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0`} 
+                  href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن خدمات التأجير لديكم")}&type=phone_number&app_absent=0`} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-5 py-2.5 border border-gold-accent text-gold-accent hover:bg-gold-accent hover:text-plum-primary rounded-none text-base font-black transition-all duration-300 gap-2 hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent"
@@ -256,7 +256,7 @@ export default function Header({ categories, tenant }: HeaderProps) {
             {/* Quick CTAs */}
             <div className="mt-auto flex flex-col gap-4">
               <a
-                href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8Account%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AA%D8%AC%D9%87%D9%8A%D8%B2%D8%A7%D8%AA%D9%83%D9%85`}
+                href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن تجهيزاتكم")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3.5 bg-green-600 hover:bg-green-700 text-white text-xs font-black text-center rounded-none flex items-center justify-center gap-2"
@@ -302,7 +302,7 @@ export default function Header({ categories, tenant }: HeaderProps) {
 
         {/* Quick WhatsApp Quote */}
         <a 
-          href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1`}
+          href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=${encodeURIComponent("السلام عليكم، الاستفسار عن التأجير")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center gap-1 text-white hover:text-gold-accent transition-colors duration-300"

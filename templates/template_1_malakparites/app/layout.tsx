@@ -142,8 +142,8 @@ export default async function RootLayout({
     "fontFamily": "var(--font-tajawal), sans-serif",
   } as React.CSSProperties;
 
-  const phoneNum = tenant.phone || "+966569436019";
-  const whatsappNum = tenant.whatsapp || "+966569436019";
+  const phoneNum = tenant.phone || "+996567880162";
+  const whatsappNum = tenant.whatsapp || "+996567880162";
   const emailAddr = tenant.email || "info@malakparties.com";
   const addressText = tenant.address || "الرياض - ملك الحفلات";
 
@@ -323,7 +323,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         {/* Pulsing WhatsApp FAB (Desktop Only since mobile has it in the bottom navigation bar) */}
         <a
-          href={`https://api.whatsapp.com/send/?phone=${whatsappNum.replace("+", "").replace(" ", "")}&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0`}
+          href={`https://api.whatsapp.com/send/?phone=${whatsappNum.replace("+", "").replace(" ", "")}&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن خدمات التأجير لديكم")}&type=phone_number&app_absent=0`}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:flex fixed z-50 md:bottom-8 md:left-8 items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group cursor-pointer"

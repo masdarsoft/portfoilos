@@ -164,7 +164,7 @@ export default async function HomePage() {
       <GallerySection />
 
       {/* 6. QUICK DIRECT CONTACT PANEL */}
-      <ContactSection />
+      <ContactSection tenant={tenant} />
 
     </div>
   );
