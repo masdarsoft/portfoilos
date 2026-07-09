@@ -142,7 +142,7 @@ export default async function RootServiceDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <ServiceDetailClient category={category} allCategories={categories} tenantDomain={domain} />
+      <ServiceDetailClient category={category} allCategories={categories} tenantDomain={domain} tenant={tenant} />
     </>
   );
 }

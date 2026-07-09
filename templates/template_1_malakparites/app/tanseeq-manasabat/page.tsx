@@ -98,7 +98,7 @@ export default async function TanseeqManasabatPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
       />
-      <TanseeqClient categories={categories} />
+      <TanseeqClient categories={categories} tenant={tenant} />
     </>
   );
 }

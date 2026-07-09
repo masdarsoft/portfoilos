@@ -19,7 +19,11 @@ const SERVICE_OPTIONS = [
   { id: "other", label: "تجهيز متكامل / خدمات أخرى" }
 ];
 
-export default function ContactClient() {
+interface ContactClientProps {
+  tenant?: any;
+}
+
+export default function ContactClient({ tenant }: ContactClientProps) {
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
   const [selectedService, setSelectedService] = useState("");
@@ -27,6 +31,10 @@ export default function ContactClient() {
   const [messageText, setMessageText] = useState("");
   
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const rawPhone = tenant?.phone || "+996567880162";
+  const rawWhatsapp = tenant?.whatsapp || "+996567880162";
+  const cleanWhatsapp = rawWhatsapp.replace("+", "").replace(" ", "");
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,7 +57,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
 شكراً لكم، أرجو التواصل معي لتأكيد التفاصيل والأسعار.`;
 
     const encodedText = encodeURIComponent(arabicMsg);
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=%2B996567880162&text=${encodedText}`;
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=${encodedText}`;
     window.open(whatsappUrl, "_blank");
 
     // Show custom success card
@@ -246,24 +254,24 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                 </div>
               </div>
 
-              {/* Direct call */}
-              <a
-                href="tel:+996567880162"
-                className="bg-white hover:border-plum-primary/35 hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-plum-primary/20 transition-all duration-300 rounded-none p-6 border border-gray-100 shadow-sm flex items-start gap-4"
+              {/* Call Direct */}
+              <a 
+                href={`tel:${rawPhone}`}
+                className="bg-white hover:border-gold-accent/35 hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-gold-accent/20 transition-all duration-300 rounded-none p-6 border border-gray-100 shadow-sm flex items-start gap-4"
               >
-                <div className="p-3 bg-plum-primary/10 text-plum-primary rounded-none flex items-center justify-center flex-shrink-0">
+                <div className="p-3 bg-gold-accent/10 text-plum-primary rounded-none flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-plum-primary" />
                 </div>
                 <div className="flex flex-col text-right">
                   <span className="text-[10px] text-gray-400 font-bold uppercase mb-0.5">اتصال هاتفي مباشر</span>
-                  <span className="text-xs font-bold text-plum-primary leading-snug" dir="ltr">+996 567880162</span>
+                  <span className="text-xs font-bold text-plum-primary leading-snug" dir="ltr">{rawPhone}</span>
                   <span className="text-[11px] text-text-light font-medium mt-0.5">تحدث مع موظف خدمة العملاء</span>
                 </div>
               </a>
 
               {/* WhatsApp direct */}
               <a
-                href="https://api.whatsapp.com/send/?phone=%2B996567880162&text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C+%D8%A3%D8%B1%D9%8A%D8%AF+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1+%D8%B9%D9%86+%D8%AE%D8%AF%D9%85%D8%A7%D8%AA+%D8%A7%D9%84%D8%AA%D8%A3%D8%AC%D9%8A%D8%B1+%D9%84%D8%AF%D9%8A%D9%83%D9%85&type=phone_number&app_absent=0"
+                href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن خدمات التأجير لديكم")}&type=phone_number&app_absent=0`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white hover:border-[#25D366]/35 hover:outline hover:outline-1 hover:outline-offset-4 hover:outline-[#25D366]/20 transition-all duration-300 rounded-none p-6 border border-gray-100 shadow-sm flex items-start gap-4"

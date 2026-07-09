@@ -23,7 +23,8 @@ import { getIconComponent } from "../../../lib/resolveIcon";
 interface ServiceDetailClientProps {
   category: RentalCategory;
   allCategories: RentalCategory[];
-  tenantDomain?: string;
+  tenantDomain: string;
+  tenant?: any;
 }
 
 // Map category IDs to their corresponding video files in public/malakparties/malakvideos
@@ -48,7 +49,7 @@ const getCategoryVideo = (id: string): string | null => {
   return mapping[id] ?? null;
 };
 
-export default function ServiceDetailClient({ category, allCategories, tenantDomain }: ServiceDetailClientProps) {
+export default function ServiceDetailClient({ category, allCategories, tenantDomain, tenant }: ServiceDetailClientProps) {
   const similarServices = useMemo(() => {
     return allCategories.filter((cat) => cat.id !== category.id).slice(0, 3);
   }, [category.id, allCategories]);
@@ -114,7 +115,7 @@ export default function ServiceDetailClient({ category, allCategories, tenantDom
       console.warn('[ServiceDetailClient] API Booking submission failed, falling back to manual WhatsApp:', err);
     }
 
-    const defaultWhatsApp = process.env.NEXT_PUBLIC_WHATSAPP || "996567880162";
+    const defaultWhatsApp = tenant?.whatsapp || process.env.NEXT_PUBLIC_WHATSAPP || "996567880162";
     const cleanWhatsApp = defaultWhatsApp.replace("+", "").replace(" ", "");
 
     const arabicMsg = `السلام عليكم ورحمة الله وبركاته،
@@ -130,7 +131,7 @@ ${extraNotes ? `- ملاحظات إضافية: ${extraNotes}` : ""}
 شكراً لكم، أرجو تزويدي بالأسعار والتفاصيل المتاحة.`;
 
     const encodedText = encodeURIComponent(arabicMsg);
-    const whatsappUrl = `https://api.whatsapp.com/send/?phone=%2B${cleanWhatsApp}&text=${encodedText}`;
+    const whatsappUrl = `https://api.whatsapp.com/send/?phone=${cleanWhatsApp}&text=${encodedText}`;
     window.open(whatsappUrl, "_blank");
     setIsSubmitting(false);
   };
