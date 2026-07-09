@@ -26,7 +26,19 @@ try:
     with urllib.request.urlopen(req) as response:
         print("Success! Status:", response.status)
         print("Headers:", dict(response.headers))
-        print("Body:", response.read().decode("utf-8")[:200])
+        body = response.read().decode("utf-8")
+        import json
+        try:
+            data = json.loads(body)
+            print("\n=== RESOLVED DATABASE TENANT DETAILS ===")
+            print("Name:     ", data.get("name"))
+            print("Subdomain:", data.get("subdomain"))
+            print("Phone:    ", data.get("phone"))
+            print("WhatsApp: ", data.get("whatsapp"))
+            print("Address:  ", data.get("address"))
+            print("========================================")
+        except Exception:
+            print("Body:", body[:300])
 except urllib.error.HTTPError as e:
     print("HTTP Error:", e.code)
     print("Headers:", dict(e.headers))
