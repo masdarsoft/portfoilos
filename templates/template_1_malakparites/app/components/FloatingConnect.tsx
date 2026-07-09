@@ -5,7 +5,7 @@ export default function FloatingConnect() {
     <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
       {/* WhatsApp Floating Action Button */}
       <a 
-        href={`https://api.whatsapp.com/send/?phone=996567880162&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن خدمات التأجير لديكم")}&type=phone_number&app_absent=0`} 
+        href={`https://api.whatsapp.com/send/?phone=966567880162&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن خدمات التأجير لديكم")}&type=phone_number&app_absent=0`} 
         target="_blank" 
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba56] rounded-full text-white shadow-2xl hover:scale-105 transition-all duration-300"
@@ -18,7 +18,7 @@ export default function FloatingConnect() {
 
       {/* Direct Call Floating Action Button */}
       <a 
-        href="tel:+996567880162"
+        href="tel:+966567880162"
         className="flex items-center justify-center w-14 h-14 bg-gold-accent hover:bg-gold-light rounded-full text-plum-primary shadow-2xl hover:scale-105 transition-all duration-300 hover:rotate-12"
         aria-label="اتصال سريع"
       >

@@ -35,8 +35,8 @@ export default function Header({ categories, tenant }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const phoneNum = tenant?.phone || "+996567880162";
-  const whatsappNum = tenant?.whatsapp || "+996567880162";
+  const phoneNum = tenant?.phone || "+966567880162";
+  const whatsappNum = tenant?.whatsapp || "+966567880162";
   const cleanWhatsapp = whatsappNum.replace(/[^0-9]/g, "");
 
   const navLinks = [

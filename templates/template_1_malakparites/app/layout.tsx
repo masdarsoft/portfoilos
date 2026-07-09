@@ -142,8 +142,8 @@ export default async function RootLayout({
     "fontFamily": "var(--font-tajawal), sans-serif",
   } as React.CSSProperties;
 
-  const phoneNum = tenant.phone || "+996567880162";
-  const whatsappNum = tenant.whatsapp || "+996567880162";
+  const phoneNum = tenant.phone || "+966567880162";
+  const whatsappNum = tenant.whatsapp || "+966567880162";
   const emailAddr = tenant.email || "info@malakparties.com";
   const addressText = tenant.address || "الرياض - ملك الحفلات";
 

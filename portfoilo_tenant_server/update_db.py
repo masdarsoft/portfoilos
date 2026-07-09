@@ -10,8 +10,8 @@ conn = sqlite3.connect(db_path)
 cur = conn.cursor()
 
 # Prepare new values
-new_phone = '+996567880162'
-new_whatsapp = '+996567880162'
+new_phone = '+966567880162'
+new_whatsapp = '+966567880162'
 
 # Update query
 cur.execute("""

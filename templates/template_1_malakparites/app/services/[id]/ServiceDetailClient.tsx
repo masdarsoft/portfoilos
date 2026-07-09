@@ -115,7 +115,7 @@ export default function ServiceDetailClient({ category, allCategories, tenantDom
       console.warn('[ServiceDetailClient] API Booking submission failed, falling back to manual WhatsApp:', err);
     }
 
-    const defaultWhatsApp = tenant?.whatsapp || process.env.NEXT_PUBLIC_WHATSAPP || "996567880162";
+    const defaultWhatsApp = tenant?.whatsapp || process.env.NEXT_PUBLIC_WHATSAPP || "966567880162";
     const cleanWhatsApp = defaultWhatsApp.replace(/[^0-9]/g, "");
 
     const arabicMsg = `السلام عليكم ورحمة الله وبركاته،

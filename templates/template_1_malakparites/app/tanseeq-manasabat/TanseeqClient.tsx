@@ -180,8 +180,8 @@ interface TanseeqClientProps {
 export default function TanseeqClient({ categories = RENTAL_CATEGORIES, tenant }: TanseeqClientProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const rawPhone = tenant?.phone || "+996567880162";
-  const rawWhatsapp = tenant?.whatsapp || "+996567880162";
+  const rawPhone = tenant?.phone || "+966567880162";
+  const rawWhatsapp = tenant?.whatsapp || "+966567880162";
   const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, "");
 
   const renderStars = (n: number) =>

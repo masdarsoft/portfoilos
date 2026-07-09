@@ -32,8 +32,8 @@ export default function ContactClient({ tenant }: ContactClientProps) {
   
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const rawPhone = tenant?.phone || "+996567880162";
-  const rawWhatsapp = tenant?.whatsapp || "+996567880162";
+  const rawPhone = tenant?.phone || "+966567880162";
+  const rawWhatsapp = tenant?.whatsapp || "+966567880162";
   const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, "");
 
   const handleFormSubmit = (e: React.FormEvent) => {

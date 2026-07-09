@@ -18,8 +18,8 @@ export default function ContactSection({ tenant }: ContactSectionProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const rawPhone = tenant?.phone || "+996567880162";
-  const rawWhatsapp = tenant?.whatsapp || "+996567880162";
+  const rawPhone = tenant?.phone || "+966567880162";
+  const rawWhatsapp = tenant?.whatsapp || "+966567880162";
   const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, "");
 
   const handleSubmit = async (e: React.FormEvent) => {
