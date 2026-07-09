@@ -98,7 +98,7 @@ export default function ContactSection({ tenant }: ContactSectionProps) {
                 id="phone-input"
                 type="tel"
                 required
-                placeholder="مثال: 0569436019"
+                placeholder="مثال: 0567880162"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 className="w-full px-4 py-3 bg-plum-dark/40 border border-white/15 focus:border-gold-accent rounded-none text-xs text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-gold-accent/50 focus:outline-offset-2 transition-all text-left dir-ltr transition-all duration-300"
