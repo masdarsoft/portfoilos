@@ -55,20 +55,20 @@ export default function Header({ categories, tenant }: HeaderProps) {
       {/* ─── DESKTOP HEADER (MD & UP) ─── */}
       <div className="hidden md:block sticky top-0 z-50 w-full pointer-events-none bg-transparent transition-all duration-500">
         <div className={`mx-auto transition-all duration-500 pointer-events-auto w-full ${
-          isScrolled ? "max-w-5xl mt-4 px-4" : "max-w-full mt-0 px-0"
+          isScrolled ? "max-w-7xl mt-4 px-4" : "max-w-full mt-0 px-0"
         }`}>
           <header className={`w-full transition-all duration-500 ease-in-out overflow-hidden ${
             isScrolled 
-              ? "rounded-[40px] bg-plum-primary/95 border border-gold-accent/25 shadow-xl shadow-plum-dark/20 px-6 py-1.5" 
+              ? "rounded-[40px] bg-plum-primary/95 border border-gold-accent/25 shadow-xl shadow-plum-dark/20 px-6 py-2.5" 
               : "rounded-none bg-plum-primary border-b border-white/10 shadow-none px-4 sm:px-6 lg:px-8 py-4"
           }`}>
             <div className="flex items-center justify-between">
               
               {/* Logo & Brand Identity */}
               <div className="flex items-center gap-4">
-                <Link href="/" className="flex items-center gap-3 pointer-events-auto">
+                <Link href="/" className="flex items-center gap-1.5 pointer-events-auto">
                   {/* Clean logo frame */}
-                  <div className="relative h-11 w-28 flex items-center justify-center flex-shrink-0">
+                  <div className={`relative flex items-center justify-center flex-shrink-0 transition-all duration-500 ${isScrolled ? "h-9 w-18" : "h-11 w-24"}`}>
                     <Image
                       src={tenant?.logo || "/logo.png"}
                       alt={tenant?.name || "شعار ملك الحفلات"}
@@ -78,10 +78,10 @@ export default function Header({ categories, tenant }: HeaderProps) {
                     />
                   </div>
                   <div className="flex flex-col text-right">
-                    <span className="text-base font-black tracking-wider text-white transition-colors duration-300">
+                    <span className={`font-black tracking-wider text-white transition-all duration-500 ${isScrolled ? "text-xs sm:text-sm" : "text-sm sm:text-base"}`}>
                       مؤسسة ملك الحفلات
                     </span>
-                    <span className="text-[9px] font-medium leading-none transition-colors duration-300 text-gold-accent">
+                    <span className={`font-medium leading-none text-gold-accent transition-all duration-500 ${isScrolled ? "text-[8px]" : "text-[9px]"}`}>
                       {tenant?.tagline || "لتجهيز المناسبات والفعاليات"}
                     </span>
                   </div>
@@ -89,14 +89,14 @@ export default function Header({ categories, tenant }: HeaderProps) {
               </div>
 
               {/* Navigation Links */}
-              <nav className="flex items-center gap-8">
+              <nav className={`flex items-center transition-all duration-500 ${isScrolled ? "gap-5 lg:gap-7" : "gap-6 lg:gap-8"}`}>
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href;
                   return (
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`relative py-1 font-semibold text-xs transition-colors duration-300 ${
+                      className={`relative py-1 font-bold transition-all duration-500 ${isScrolled ? "text-[12px] lg:text-[13px]" : "text-[13px] sm:text-[14px] lg:text-[15px]"} ${
                         isActive ? "text-gold-accent" : linkColorClass
                       }`}
                     >
@@ -116,20 +116,20 @@ export default function Header({ categories, tenant }: HeaderProps) {
                   href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن خدمات التأجير لديكم")}&type=phone_number&app_absent=0`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-5 py-2.5 border border-gold-accent text-gold-accent hover:bg-gold-accent hover:text-plum-primary rounded-none text-base font-black transition-all duration-300 gap-2 hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent"
+                  className={`inline-flex items-center justify-center border border-gold-accent text-gold-accent hover:bg-gold-accent hover:text-plum-primary rounded-none font-black transition-all duration-500 gap-1.5 hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent ${isScrolled ? "text-xs px-3.5 py-1.5" : "text-xs sm:text-sm px-4 py-2"}`}
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className={`transition-all duration-500 ${isScrolled ? "w-3.5 h-3.5" : "w-4 h-4"}`} />
                   <span>طلب تسعير سريع</span>
                 </a>
                 
                 {/* Sharp square call button with phone number text */}
                 <a 
                   href={`tel:${phoneNum}`}
-                  className="inline-flex items-center justify-center px-5 py-2.5 bg-gold-accent text-plum-primary hover:bg-gold-light hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent transition-all duration-300 shadow-md gap-2 rounded-none text-base font-black"
+                  className={`inline-flex items-center justify-center bg-gold-accent text-plum-primary hover:bg-gold-light hover:outline hover:outline-1 hover:outline-offset-2 hover:outline-gold-accent transition-all duration-500 shadow-md gap-1.5 rounded-none ${isScrolled ? "px-3.5 py-1.5" : "px-4 py-2"}`}
                   aria-label={`اتصل بنا على الرقم ${phoneNum}`}
                 >
-                  <Phone className="w-4 h-4" />
-                  <span dir="ltr">{phoneNum}</span>
+                  <Phone className={`transition-all duration-500 ${isScrolled ? "w-3.5 h-3.5" : "w-4 h-4"}`} />
+                  <span dir="ltr" className={`font-black transition-all duration-500 ${isScrolled ? "text-[14px]" : "text-base lg:text-[17px]"}`}>{phoneNum}</span>
                 </a>
               </div>
             </div>
@@ -299,18 +299,6 @@ export default function Header({ categories, tenant }: HeaderProps) {
           <Sparkles className="w-5.5 h-5.5" />
           <span className="text-[10px] font-black">الخدمات</span>
         </Link>
-
-        {/* Quick WhatsApp Quote */}
-        <a 
-          href={`https://api.whatsapp.com/send/?phone=${cleanWhatsapp}&text=${encodeURIComponent("السلام عليكم، الاستفسار عن التأجير")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center gap-1 text-white hover:text-gold-accent transition-colors duration-300"
-          aria-label="مراسلة واتساب"
-        >
-          <MessageCircle className="w-5.5 h-5.5" />
-          <span className="text-[10px] font-black">واتساب</span>
-        </a>
 
         <Link 
           href="/about" 

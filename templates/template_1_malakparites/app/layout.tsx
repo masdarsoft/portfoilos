@@ -321,12 +321,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
         </footer>
 
-        {/* Pulsing WhatsApp FAB (Desktop Only since mobile has it in the bottom navigation bar) */}
+        {/* Pulsing WhatsApp FAB (visible on all screen sizes, positioned above mobile bottom nav) */}
         <a
           href={`https://api.whatsapp.com/send/?phone=${whatsappNum.replace("+", "").replace(" ", "")}&text=${encodeURIComponent("السلام عليكم، أريد الاستفسار عن خدمات التأجير لديكم")}&type=phone_number&app_absent=0`}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:flex fixed z-50 md:bottom-8 md:left-8 items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group cursor-pointer"
+          className="fixed z-50 bottom-28 left-6 md:bottom-8 md:left-8 flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group cursor-pointer"
           aria-label="اتصال سريع واتساب"
         >
           <span className="absolute inset-0 rounded-full bg-green-500/30 animate-ping group-hover:hidden" />
