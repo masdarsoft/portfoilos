@@ -5,6 +5,7 @@ import AboutSection from "./components/AboutSection";
 import GallerySection from "./components/GallerySection";
 import ContactSection from "./components/ContactSection";
 import DroneShowcase from "./components/DroneShowcase";
+import SeoTagsSection from "./components/SeoTagsSection";
 import { getTenant, FALLBACK_TENANT } from "../lib/api/tenants";
 import { getCategories } from "../lib/api/catalog";
 import { getTenantDomain } from "../lib/getTenantDomain";
@@ -13,7 +14,37 @@ export async function generateMetadata(): Promise<Metadata> {
   const domain = getTenantDomain();
   const tenant = await getTenant(domain).catch(() => FALLBACK_TENANT);
   
+  const keywordsList = [
+    "اقرب محل تاجير مكيفات",
+    "رقم تلفون تاجير مكيفات صحراوي",
+    "حفلات الروضة",
+    "حفلات السعاده",
+    "حفلات حي الجزيره",
+    "تاجير حفلات السلي",
+    "حفلات وتنسق حفلات النسيم",
+    "حفلات الروابي",
+    "تاجير كنب مركاز وكنب كويتي",
+    "تاجير زل ازرق",
+    "تاجير زل ملكي",
+    "تاجير كراسي كلاسيكي",
+    "تاجير مخمل",
+    "تاجير اخيام جميع المقاسات",
+    "تاجير بيوت شعر جميع المقاسات",
+    "تاجير جلسات مرتفعه",
+    "شركه حفلات ومناسبات",
+    "موسسة حفلات ومناسبات",
+    "تاجير كراسي مخمل",
+    "تاجير طولات",
+    "تاجير سمعات",
+    "احسن محل تاجير الرياض",
+    "حفلات الدرعيه تاجير مكيفات صحراوي",
+    "حفلات حي الرمال",
+    "محل حفلات العزازيه",
+    "محل حفلات شرقي الرياض"
+  ];
+
   return {
+    keywords: keywordsList,
     alternates: {
       canonical: tenant.custom_domain ? `https://${tenant.custom_domain}` : `https://${tenant.subdomain}.najdalzian.com`,
     },
@@ -163,7 +194,10 @@ export default async function HomePage() {
       {/* 5. GALLERY OF LUXURIOUS EVENTS */}
       <GallerySection />
 
-      {/* 6. QUICK DIRECT CONTACT PANEL */}
+      {/* 6. SEO SERVICES DIRECTORY & SERVICE COVERAGE AREA CHIPS */}
+      <SeoTagsSection />
+
+      {/* 7. QUICK DIRECT CONTACT PANEL */}
       <ContactSection tenant={tenant} />
 
     </div>
