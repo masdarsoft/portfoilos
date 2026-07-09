@@ -34,7 +34,7 @@ export default function ContactClient({ tenant }: ContactClientProps) {
 
   const rawPhone = tenant?.phone || "+996567880162";
   const rawWhatsapp = tenant?.whatsapp || "+996567880162";
-  const cleanWhatsapp = rawWhatsapp.replace("+", "").replace(" ", "");
+  const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, "");
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();

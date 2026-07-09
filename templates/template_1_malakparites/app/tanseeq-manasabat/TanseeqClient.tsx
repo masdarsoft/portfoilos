@@ -182,7 +182,7 @@ export default function TanseeqClient({ categories = RENTAL_CATEGORIES, tenant }
 
   const rawPhone = tenant?.phone || "+996567880162";
   const rawWhatsapp = tenant?.whatsapp || "+996567880162";
-  const cleanWhatsapp = rawWhatsapp.replace("+", "").replace(" ", "");
+  const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, "");
 
   const renderStars = (n: number) =>
     Array.from({ length: 5 }, (_, i) => (

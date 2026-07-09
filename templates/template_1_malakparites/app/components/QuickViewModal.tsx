@@ -73,7 +73,7 @@ export default function QuickViewModal({ selectedCategory, onClose, tenantDomain
       console.error("Failed to create booking:", err);
       // Fallback manual URL
       const defaultWhatsApp = process.env.NEXT_PUBLIC_WHATSAPP || "996567880162";
-      const cleanWhatsApp = defaultWhatsApp.replace("+", "").replace(" ", "");
+      const cleanWhatsApp = defaultWhatsApp.replace(/[^0-9]/g, "");
       const manualUrl = `https://api.whatsapp.com/send/?phone=${cleanWhatsApp}&text=${encodeURIComponent(
         `السلام عليكم، أريد الاستفسار عن خدمة: ${selectedCategory.title}\nالاسم: ${customerName}\nالجوال: ${customerPhone}\nالتاريخ: من ${startDate || "غير محدد"} إلى ${endDate || "غير محدد"}\nالموقع: ${eventLocation}\nالملاحظات: ${extraNotes}`
       )}`;

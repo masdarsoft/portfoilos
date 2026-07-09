@@ -20,7 +20,7 @@ export default function ContactSection({ tenant }: ContactSectionProps) {
 
   const rawPhone = tenant?.phone || "+996567880162";
   const rawWhatsapp = tenant?.whatsapp || "+996567880162";
-  const cleanWhatsapp = rawWhatsapp.replace("+", "").replace(" ", "");
+  const cleanWhatsapp = rawWhatsapp.replace(/[^0-9]/g, "");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

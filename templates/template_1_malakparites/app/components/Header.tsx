@@ -37,7 +37,7 @@ export default function Header({ categories, tenant }: HeaderProps) {
 
   const phoneNum = tenant?.phone || "+996567880162";
   const whatsappNum = tenant?.whatsapp || "+996567880162";
-  const cleanWhatsapp = whatsappNum.replace("+", "").replace(" ", "");
+  const cleanWhatsapp = whatsappNum.replace(/[^0-9]/g, "");
 
   const navLinks = [
     { href: "/tanseeq-manasabat", label: "تنسيق المناسبات" },

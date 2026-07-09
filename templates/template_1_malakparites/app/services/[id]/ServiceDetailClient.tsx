@@ -116,7 +116,7 @@ export default function ServiceDetailClient({ category, allCategories, tenantDom
     }
 
     const defaultWhatsApp = tenant?.whatsapp || process.env.NEXT_PUBLIC_WHATSAPP || "996567880162";
-    const cleanWhatsApp = defaultWhatsApp.replace("+", "").replace(" ", "");
+    const cleanWhatsApp = defaultWhatsApp.replace(/[^0-9]/g, "");
 
     const arabicMsg = `السلام عليكم ورحمة الله وبركاته،
 أود الاستفسار عن خدمة: *${category.title}*
