@@ -213,7 +213,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                   <p className="text-xs text-text-light max-w-sm leading-relaxed font-light">
                     تم إنشاء وتنسيق تفاصيل طلبك وفتح نافذة واتساب المشفرة للتحدث مباشرة مع مسؤولي الحجوزات لمؤسسة ملك الحفلات.
                   </p>
-                  <span className="text-[10px] text-gray-400 mt-2 font-medium">سيتم إعادة تعيين الحقول تلقائياً بعد قليل...</span>
+                  <span className="text-[10px] text-gray-500 mt-2 font-medium">سيتم إعادة تعيين الحقول تلقائياً بعد قليل...</span>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -236,7 +236,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                   <MapPin className="w-5 h-5 text-plum-primary group-hover:text-white transition-all duration-300" />
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="text-[10px] text-gray-400 font-bold uppercase mb-0.5">موقعنا على الخريطة</span>
+                  <span className="text-[10px] text-gray-500 font-bold uppercase mb-0.5">موقعنا على الخريطة</span>
                   <span className="text-xs font-bold text-plum-primary leading-snug group-hover:text-gold-accent transition-colors duration-300">ملك الحفلات</span>
                   <span className="text-[11px] text-text-light font-medium mt-0.5 leading-relaxed">جاكرتا، السعادة، الرياض 14614، المملكة العربية السعودية (اضغط للتوجيه)</span>
                 </div>
@@ -248,7 +248,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                   <Clock className="w-5 h-5 text-plum-primary" />
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="text-[10px] text-gray-400 font-bold uppercase mb-0.5">أوقات العمل المتاحة</span>
+                  <span className="text-[10px] text-gray-500 font-bold uppercase mb-0.5">أوقات العمل المتاحة</span>
                   <span className="text-xs font-bold text-plum-primary leading-snug">٢٤ ساعة يومياً</span>
                   <span className="text-[11px] text-text-light font-medium mt-0.5">متواجدون طوال أيام الأسبوع لخدمتكم</span>
                 </div>
@@ -263,7 +263,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                   <Phone className="w-5 h-5 text-plum-primary" />
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="text-[10px] text-gray-400 font-bold uppercase mb-0.5">اتصال هاتفي مباشر</span>
+                  <span className="text-[10px] text-gray-500 font-bold uppercase mb-0.5">اتصال هاتفي مباشر</span>
                   <span className="text-xs font-bold text-plum-primary leading-snug" dir="ltr">{rawPhone}</span>
                   <span className="text-[11px] text-text-light font-medium mt-0.5">تحدث مع موظف خدمة العملاء</span>
                 </div>
@@ -280,7 +280,7 @@ ${messageText || "لا توجد ملاحظات إضافية"}
                   <MessageSquare className="w-5 h-5 text-[#25D366]" />
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="text-[10px] text-gray-400 font-bold uppercase mb-0.5">الدردشة عبر الواتساب</span>
+                  <span className="text-[10px] text-gray-500 font-bold uppercase mb-0.5">الدردشة عبر الواتساب</span>
                   <span className="text-xs font-bold text-plum-primary leading-snug">راسلنا فورياً</span>
                   <span className="text-[11px] text-[#25D366] font-bold mt-0.5">متاح دائماً للاستفسارات</span>
                 </div>

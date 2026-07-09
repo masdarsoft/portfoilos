@@ -277,10 +277,10 @@ export default function Header({ categories, tenant }: HeaderProps) {
       </AnimatePresence>
 
       {/* ─── MOBILE FIXED BOTTOM NAVIGATION BAR ─── */}
-      <div className="md:hidden fixed bottom-6 left-4 right-4 z-40 bg-plum-dark border border-gold-accent/40 rounded-none px-2 py-3 shadow-2xl shadow-black/80 flex items-center justify-around animate-fade-in">
+      <div className="md:hidden fixed bottom-6 left-4 right-4 z-40 bg-plum-dark border border-gold-accent/40 rounded-none px-2 py-1 shadow-2xl shadow-black/80 flex items-center justify-around animate-fade-in">
         <Link 
           href="/" 
-          className={`flex flex-col items-center gap-1 transition-colors duration-300 ${
+          className={`flex flex-col items-center justify-center min-w-[48px] min-h-[48px] p-1 gap-1 transition-colors duration-300 ${
             pathname === "/" ? "text-gold-accent" : "text-white hover:text-gold-accent"
           }`}
           aria-label="الصفحة الرئيسية"
@@ -291,18 +291,18 @@ export default function Header({ categories, tenant }: HeaderProps) {
 
         <Link 
           href="/services" 
-          className={`flex flex-col items-center gap-1 transition-colors duration-300 ${
+          className={`flex flex-col items-center justify-center min-w-[48px] min-h-[48px] p-1 gap-1 transition-colors duration-300 ${
             pathname === "/services" ? "text-gold-accent" : "text-white hover:text-gold-accent"
           }`}
-          aria-label="كل الخدمات"
+          aria-label="خدماتنا"
         >
           <Sparkles className="w-5.5 h-5.5" />
-          <span className="text-[10px] font-black">الخدمات</span>
+          <span className="text-[10px] font-black">خدماتنا</span>
         </Link>
 
         <Link 
           href="/about" 
-          className={`flex flex-col items-center gap-1 transition-colors duration-300 ${
+          className={`flex flex-col items-center justify-center min-w-[48px] min-h-[48px] p-1 gap-1 transition-colors duration-300 ${
             pathname === "/about" ? "text-gold-accent" : "text-white hover:text-gold-accent"
           }`}
           aria-label="من نحن"
@@ -313,13 +313,13 @@ export default function Header({ categories, tenant }: HeaderProps) {
 
         <Link 
           href="/contact" 
-          className={`flex flex-col items-center gap-1 transition-colors duration-300 ${
+          className={`flex flex-col items-center justify-center min-w-[48px] min-h-[48px] p-1 gap-1 transition-colors duration-300 ${
             pathname === "/contact" ? "text-gold-accent" : "text-white hover:text-gold-accent"
           }`}
           aria-label="اتصل بنا"
         >
           <Phone className="w-5.5 h-5.5" />
-          <span className="text-[10px] font-black">حجز موعد</span>
+          <span className="text-[10px] font-black">اتصل بنا</span>
         </Link>
       </div>
     </>

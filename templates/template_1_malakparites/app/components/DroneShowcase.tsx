@@ -101,8 +101,17 @@ export default function DroneShowcase() {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover"
-              />
+              >
+                <track 
+                  kind="captions" 
+                  srcLang="ar" 
+                  label="العربية" 
+                  src="data:text/vtt,WEBVTT%0A%0A00:00:00.000%20--%3E%2000:05:00.000%0Aعرض%20جوي%20لعقود%20الإنارة%20المضيئة%20في%20الرياض" 
+                  default 
+                />
+              </video>
 
               {/* Subtle Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />

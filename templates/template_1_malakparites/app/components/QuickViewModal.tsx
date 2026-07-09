@@ -343,7 +343,7 @@ export default function QuickViewModal({ selectedCategory, onClose, tenantDomain
                 </button>
               </div>
 
-              <p className="text-[9px] text-gray-400 text-center leading-relaxed">
+              <p className="text-[9px] text-gray-300 text-center leading-relaxed">
                 عند النقر، سيقوم النظام تلقائياً بإنشاء تفاصيل الطلب وتنسيق رسالة واتساب لفتح محادثة مباشرة مع خدمة العملاء.
               </p>
             </form>

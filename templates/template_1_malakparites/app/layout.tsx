@@ -292,7 +292,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               
               {/* Payment Methods */}
               <div className="flex flex-wrap items-center justify-center gap-3 my-2 md:my-0">
-                <span className="text-[10px] text-gray-400 font-medium ml-1">طرق الدفع المتاحة:</span>
+                <span className="text-[10px] text-gray-200 font-medium ml-1">طرق الدفع المتاحة:</span>
                 <div className="flex items-center gap-2 bg-white/5 px-2.5 py-1 rounded-none border border-white/10 backdrop-blur-sm shadow-inner">
                   {/* Mada */}
                   <div className="relative w-9 h-5 bg-white/95 rounded-none flex items-center justify-center px-1 py-0.5 shadow-sm hover:bg-white transition-colors duration-300" title="مدى - Mada">
@@ -313,7 +313,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   <div className="w-9 h-5 bg-white/95 rounded-none flex items-center justify-center font-bold text-[7px] text-[#EB0015] tracking-wider shadow-sm hover:bg-white transition-colors duration-300" title="ماستركارد - Mastercard">
                     MC
                   </div>
-                  <span className="text-[9px] text-gray-400 font-bold border-r border-white/10 pr-2 mr-1">الدفع عند الاستلام</span>
+                  <span className="text-[9px] text-gray-200 font-bold border-r border-white/10 pr-2 mr-1">الدفع عند الاستلام</span>
                 </div>
               </div>
 

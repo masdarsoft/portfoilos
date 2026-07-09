@@ -45,7 +45,7 @@ export default function SeoTagsSection() {
         <h2 className="text-xl sm:text-2xl font-black text-white mb-6">
           خدمات تجهيز الحفلات والمناسبات المتكاملة
         </h2>
-        <p className="max-w-2xl mx-auto text-xs text-gray-400 mb-10 leading-relaxed font-light">
+        <p className="max-w-2xl mx-auto text-xs text-gray-200 mb-10 leading-relaxed font-light">
           نحن في مؤسسة ملك الحفلات نفخر بتغطية جميع أحياء ومناطق الرياض بشرقها وغربها وشمالها وجنوبها، لتوفير أرقى خدمات تأجير المكيفات، الخيام، بيوت الشعر، الكنب والكراسي الفاخرة لمختلف المناسبات.
         </p>
 
