@@ -77,12 +77,15 @@ export const FALLBACK_TENANT: Tenant = {
 function mapTenantApiToFrontend(apiTenant: any): Tenant {
   const cleanUrl = (url: string) => {
     if (!url) return '';
-    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
-      return url;
+    // Strip local backend host if present to make it relative /media/...
+    let resolved = url.replace(/^http:\/\/(127\.0\.0\.1|localhost):8000/, '');
+    
+    if (resolved.startsWith('http://') || resolved.startsWith('https://') || resolved.startsWith('/')) {
+      return resolved;
     }
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
     const origin = new URL(apiUrl).origin;
-    return `${origin}/media/${url}`;
+    return `${origin}/media/${resolved}`;
   };
 
   return {
