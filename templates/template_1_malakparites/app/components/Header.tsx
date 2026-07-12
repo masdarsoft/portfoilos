@@ -11,7 +11,8 @@ import {
   Sparkles, 
   Info, 
   Menu, 
-  X 
+  X,
+  Mail 
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ServiceTabs from "./ServiceTabs";
@@ -169,15 +170,6 @@ export default function Header({ categories, tenant }: HeaderProps) {
           </Link>
 
           <div className="flex items-center gap-2">
-            {/* Sharp square call button */}
-            <a 
-              href={`tel:${phoneNum}`}
-              className="flex items-center justify-center w-8 h-8 rounded-none bg-gold-accent text-plum-primary shadow-md active:scale-95 transition-transform"
-              aria-label="اتصل بنا"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-
             {/* Hamburger Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
@@ -318,7 +310,7 @@ export default function Header({ categories, tenant }: HeaderProps) {
           }`}
           aria-label="اتصل بنا"
         >
-          <Phone className="w-5.5 h-5.5" />
+          <Mail className="w-5.5 h-5.5" />
           <span className="text-[10px] font-black">اتصل بنا</span>
         </Link>
       </div>
