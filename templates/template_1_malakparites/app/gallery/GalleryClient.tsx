@@ -30,6 +30,9 @@ const GALLERY_PHOTOS = [
   { src: "/images/air_conditioner2.jpg", tag: "cooling", title: "تركيب مكيفات فريون عمودية صامتة" },
   { src: "/images/air_conditioner3.jpg", tag: "cooling", title: "مكيف فريون تبريد مكثف للخيام" },
   { src: "/images/air_conditioner4.jpg", tag: "cooling", title: "مراوح رذاذ وتلطيف حدائق" },
+  { src: "/images/مكيفات سبليت/condiation-air.jpg", tag: "cooling", title: "تركيب مكيفات سبليت للقاعات والخيام" },
+  { src: "/images/fan/مرواح-1.jpg", tag: "cooling", title: "مراوح دفع هواء صناعية للمناسبات" },
+  { src: "/images/fan/images.jpg", tag: "cooling", title: "مراوح تهوية للجلسات الخارجية" },
   { src: "/images/Noor_Contracts1.jpg", tag: "tech", title: "عقود إضاءة ليد وكشافات كبرى" },
   { src: "/images/Noor_Contracts2.jpg", tag: "tech", title: "كشافات وحوامل إضاءة ليلية" },
   { src: "/images/Speaker1.jpg", tag: "tech", title: "تجهيز سماعات دي جي وأنظمة صوت" }
