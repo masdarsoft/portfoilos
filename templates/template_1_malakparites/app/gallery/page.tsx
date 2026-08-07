@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "مشاريع تجهيز حفلات الرياض"
   ],
   alternates: {
-    canonical: "https://najdalzian.com/gallery",
+    canonical: "https://malakparties.com/gallery",
   }
 };
 
